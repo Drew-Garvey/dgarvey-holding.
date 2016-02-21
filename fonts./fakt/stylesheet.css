@@ -1,0 +1,11 @@
+/* fakt */
+
+@font-face {
+    font-family: 'FaktPro-SemiBold';
+    src: url('FaktPro-SemiBold.eot'); 
+    src: url('FaktPro-SemiBold.eot?#iefix') format('embedded-opentype'),
+         url('FaktPro-SemiBold.woff') format('woff'),
+         url('FaktPro-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,119 @@
+/* ==========================================================================
+   TYPOGRAPHY.
+   ========================================================================== */
+
+/* Fonts.
+   ========================================================================== */
+
+/* fakt */
+
+@font-face {
+    font-family: 'FaktPro-SemiBold';
+    src: url('../fonts./fakt/FaktPro-SemiBold.eot'); 
+    src: url('../fonts./fakt/FaktPro-SemiBold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts./fakt/FaktPro-SemiBold.woff') format('woff'),
+         url('../fonts./fakt/FaktPro-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt-pressura-mono-regular-web';
+    src: url('../fonts./p-mono/gt-pressura-mono-regular-web.eot');
+    src: url('../fonts./p-mono/gt-pressura-mono-regular-web.eot?#iefix') format('embedded-opentype'),
+         url('../fonts./p-mono/gt-pressura-mono-regular-web.woff') format('woff'),
+         url('../fonts./p-mono/gt-pressura-mono-regular-web.ttf') format('truetype'),
+         url('gt-pressura-mono-regular-web.svg#gt_pressura_mono_regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* Type Variables.
+   ========================================================================== */
+
+$headline: 'FaktPro-SemiBold', sans-serif;
+$body: 'gt-pressura-mono-regular-web', monospace;
+
+$break-small: 800px;
+$break-large: 1500px;
+
+/* Base Type Styles.
+   ========================================================================== */
+
+body {
+	font-family: $body;
+	color: $white;
+	font-weight: normal;
+	margin: 0;
+	padding: 4em;
+	font-size: 16px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: $white;
+	font-family: $headline;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+h1 {
+	padding: 12px 0 0;
+	font-size: 6em;
+	@media screen and (max-width: $break-small) {
+    font-size: 3em;
+ 	}
+  	@media screen and (min-width: $break-large) {
+   	font-size: 5em;
+  	}
+}
+
+h2 {
+	margin: 2em 0;
+}
+
+p {
+	font-family: $body;
+	font-weight: normal;
+	font-size: 1.2em;
+}
+
+a {
+	color: $white;
+	text-decoration: underline;
+}
+
+span {
+	display: block;
+	text-align: center;
+}
+
+ul {
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+}
+
+li {
+	padding: 0;
+}
+
+ul li {
+	display: inline-block;
+	text-align: center;
+	margin: 0 auto;
+	padding: 20px 8%;
+}
+
+
+a:hover {
+	text-decoration: none;
+	transition: border-bottom 0.12s ease-in-out 0s;
+	-webkit-transition: border-bottom 0.12s ease-in-out 0s;
+	-ms-transition: border-bottom 0.12s ease-in-out 0s;
+	-o-transition: border-bottom 0.12s ease-in-out 0s;
+	border-bottom: 4px solid $white;
+}
