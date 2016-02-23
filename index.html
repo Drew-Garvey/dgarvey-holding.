@@ -33,45 +33,61 @@
 <div id="pt"></div>
     <script type="text/javascript">
             
-    space = new CanvasSpace("hello", "#f1f1f1").display( "#pt" )
-    
-    form = new Form(space) 
-    
-    dot = new Circle( 250, 250 ).setRadius( 50 )
+    //// 1. Define Space and Form
+var colors = {
+  a1: "#00FA9A", a2: "#00FA9A"
+};
+var space = new CanvasSpace("demo", "#F5F5DC" ).display();
+var form = new Form( space );
 
-    another = new Circle( 100, 100 ).setRadius( 50 )
-    
-    bot = {
-        animate: function( time, fs, context ) {
 
-        	form.fill( "#999" )
-        	form.text( new Point( 20, 20 ), "frame rate is "+(1000/fs) )
+//// 2. Create Elements
+var mouse = new Circle( space.size.$divide(2) ).setRadius(200);
+var pts = [];
+for (var i=0; i<500; i++) {
+  pts.push( space.size.$multiply( Math.random(), Math.random()) );
+}
 
-            form.fill( "#069" ).stroke( false )
-            dot.setRadius( Math.abs(500 - time % 1000)/20 + 20 )
-            form.circle( dot )
+//// 3. Visualize, Animate, Interact
+space.add({
+  animate: function(time, fps, context) {
 
-            form.fill( false ).stroke( "#fc0", 20 )
-            form.circle( another )
+    // change mouse radius
+    mouse.setRadius( mouse.y/space.size.y * 200 + 8000 );
+    form.stroke(false);
 
-            hits = another.intersectCircle( dot )
+    // go through each point
+    for (var i=0; i<pts.length; i++) {
 
-            if (hits.length > 0) {
-            	form.fill("#0C9")
-            	form.points(hits, 5, true )
-            }
-        },
+      var size = 0.5;
+      var _p = pts[i].clone();
 
-        onMouseAction: function(type, x, y, evt) {
-        	if (type == "move") {
-        		another.set( x, y )
-        	}
-        }
-    } 
+      // if intersecting with mouse circle, change its size and scale from mouse anchor point
+      if (mouse.intersectPoint( pts[i]) ) {
+        var dist =  (mouse.radius - pts[i].distance( mouse )) / mouse.radius;
+        size = dist * 20;
+        form.fill( colors["a"+(i%4+1)] );
+        _p.scale2D( 1+dist, 1+dist, mouse );
 
-    space.add( bot )
-    space.bindMouse()
-    space.play() 
+      } else {
+        form.fill( "#006699" );
+      }
+
+      // draw points
+      form.point( _p, size, true );
+    }
+  },
+  onMouseAction: function(type, x, y, evt) {
+    if (type=="move") {
+      mouse.set(x,y);
+    }
+  }
+});
+
+
+// 4. Start playing
+space.bindMouse();
+space.play(); 
 
     </script>
 
@@ -89,8 +105,8 @@
 
 	<h2>Otherwise find me here:</h2>
 
-	<p><a href="#">Twitter</a>, <a href="#">Soundcloud</a>, <a href="#">Type Sample</a>, <a href="#">Are.na</a>.</p>
-	
+	<p><a href="https://twitter.com/Drew_Garvey">Twitter</a>, <a href="https://soundcloud.com/drew_garvey">Soundcloud</a>, <a href="https://www.typesample.com/Drew_Garvey">Type Sample</a>, <a href="https://www.are.na/drew-garvey">Are.na</a>.</p>
+
 	</div><!-- //content. -->
 
 </div><!-- //container -->

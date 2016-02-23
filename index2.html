@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- UTF janks -->
+	<meta charset="utf-8">
+
+	<!-- meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Drew Garvey, visual designer from Washington DC.">
+	<meta name="keywords" content="Drew Garvey, designer, Washington DC, art director">
+	<meta name="author" content="Drew Garvey">
+
+	<title>Drew Garvey // Visual Designer</title>
+
+	<!-- Fonts -->
+	<link rel="stylesheet" type="text/css" href="fonts/p-mono/stylesheet.css" />
+	
+	<link rel="stylesheet" type="text/css" href="fonts/fakt/stylesheet.css" />
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!-- JS -->	
+	<script type="text/javascript" src="http://williamngan.github.io/pt/dist/pt.min.js"></script>
+
+	<!-- Responsive Tag -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<div class="container">
+
+<div id="pt"></div>
+    <script type="text/javascript">
+            
+    space = new CanvasSpace("hello", "#f1f1f1").display( "#pt" )
+    
+    form = new Form(space) 
+    
+    dot = new Circle( 400, 400 ).setRadius( 200 )
+
+    another = new Circle( 100, 100 ).setRadius( 80 )
+    
+    bot = {
+        animate: function( time, fs, context ) {
+
+        	// display frame rate
+        	form.fill( "#999" )
+        	form.text( new Point( 20, 20 ), "frame rate is "+(1000/fs) )
+
+        	// full circle - pulsing.
+            form.fill( "#069" ).stroke( false )
+            dot.setRadius( Math.abs(500 - time % 1000)/80 + 80 )
+            form.circle( dot )
+
+            // outlined circle
+            form.fill( false ).stroke( "#fc0", 20 )
+            form.circle( another )
+
+            hits = another.intersectCircle( dot )
+
+            if (hits.length > 0) {
+            	form.fill("#0C9")
+            	form.points(hits, 5, true )
+            }
+        },
+
+        onMouseAction: function(type, x, y, evt) {
+        	if (type == "move") {
+        		another.set( x, y )
+        	}
+        }
+    } 
+
+    space.add( bot )
+    space.bindMouse()
+    space.play() 
+
+    </script>
+
+    <div class="content">
+
+	<h1>Drew Garvey</h1>
+
+	<p>I am a visual designer working at <a href="http://ripe.com/">ripe</a> in Washington DC.</p>
+
+	<p>New site coming soon.</p>
+
+	<p>If you’d like to chat about working together on a project say hi <a href="hello@dgarvey.info?Subject=Hello%20again" target="_top">here</a>.</p>
+
+
+
+	<h2>Otherwise find me here:</h2>
+
+	<p><a href="#">Twitter</a>, <a href="#">Soundcloud</a>, <a href="#">Type Sample</a>, <a href="#">Are.na</a>.</p>
+
+	</div><!-- //content. -->
+
+</div><!-- //container -->
+
+<script src="js/build.js"></script>
+
+</body>
+</html>

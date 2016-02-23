@@ -83,7 +83,8 @@ p {
 
 a {
 	color: $blue;
-	text-decoration: underline;
+	// text-decoration: underline;
+	border-bottom: 4px solid $blue;
 }
 
 span {
@@ -115,5 +116,4 @@ a:hover {
 	-webkit-transition: border-bottom 0.12s ease-in-out 0s;
 	-ms-transition: border-bottom 0.12s ease-in-out 0s;
 	-o-transition: border-bottom 0.12s ease-in-out 0s;
-	border-bottom: 4px solid $white;
 }
