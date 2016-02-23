@@ -44,15 +44,15 @@ $break-large: 1500px;
 
 body {
 	font-family: $body;
-	color: $white;
+	color: $blue;
 	font-weight: normal;
 	margin: 0;
-	padding: 4em;
+	// padding: 4em;
 	font-size: 16px;
 }
 
 h1,h2,h3,h4,h5,h6 {
-	color: $white;
+	color: $blue;
 	font-family: $headline;
 	font-weight: normal;
 	margin: 0;
@@ -82,7 +82,7 @@ p {
 }
 
 a {
-	color: $white;
+	color: $blue;
 	text-decoration: underline;
 }
 

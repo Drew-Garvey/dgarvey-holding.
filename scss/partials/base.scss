@@ -22,28 +22,37 @@ $break-large: 1500px;
 
    body {
    	text-align: center;
+   	overflow: hidden;
    }
 
    canvas {
-   	width: 100%;
-   	height: 100%;
-   	position: absolute;
+   	display: block;
    }
+
 
 /* .container
    ========================================================================== */
 .container {
-	width: 80%;
+	// width: 80%;
 	margin: 0 auto;
-	height: 100%;
+	// height: 100%;
 }
 
 #pt {
 	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+    width:100%;
+    height:100%;
+    z-index: 2;
+
 }
+
+.content {
+	position: relative;
+	z-index: 4;
+	top: 50%;
+	bottom: 50%;
+}
+
 
 /* <button>
    ========================================================================== */
