@@ -47,10 +47,21 @@ $break-large: 1500px;
 }
 
 .content {
-	position: relative;
+	position: fixed;
 	z-index: 4;
-	top: 50%;
-	bottom: 50%;
+	top: 16%;
+	// bottom: 20%;
+	left: 12%;
+	right: 12%;
+	// @media screen and (max-width: $break-small) {
+    // width: 80%;
+	// }
+}
+
+p.push {
+	display: inline-block;
+	margin-top: 2em;
+	margin-bottom: 0;
 }
 
 

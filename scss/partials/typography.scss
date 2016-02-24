@@ -49,6 +49,7 @@ body {
 	margin: 0;
 	// padding: 4em;
 	font-size: 16px;
+	text-rendering: optimizeLegibility;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -112,8 +113,9 @@ ul li {
 
 a:hover {
 	text-decoration: none;
-	transition: border-bottom 0.12s ease-in-out 0s;
+	transition: border-bottom 0.12s ease-in-out 0.12s;
 	-webkit-transition: border-bottom 0.12s ease-in-out 0s;
 	-ms-transition: border-bottom 0.12s ease-in-out 0s;
 	-o-transition: border-bottom 0.12s ease-in-out 0s;
+	border-bottom: 4px solid $green;
 }
