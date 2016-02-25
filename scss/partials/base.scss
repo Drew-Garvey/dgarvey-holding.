@@ -50,12 +50,15 @@ $break-large: 1500px;
 	position: fixed;
 	z-index: 4;
 	top: 16%;
+
 	// bottom: 20%;
 	left: 12%;
 	right: 12%;
-	// @media screen and (max-width: $break-small) {
-    // width: 80%;
-	// }
+	@media screen and (max-width: $break-small) {
+    top: 6%;
+    left: 10%;
+	right: 10%;
+	}
 }
 
 p.push {
