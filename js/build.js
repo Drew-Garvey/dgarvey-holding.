@@ -8,7 +8,8 @@
 var colors = {
   a1: "#00FA9A", a2: "#00FA9A"
 };
-var space = new CanvasSpace("demo", "#F5F5DC" ).display();
+// var space = new CanvasSpace("demo", "#F5F5DC" ).setup({bgcolor: "#222"});
+var space = new CanvasSpace("pt").setup({bgcolor: "#F5F5DC"});
 var form = new Form( space );
 
 
